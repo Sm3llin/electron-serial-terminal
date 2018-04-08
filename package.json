@@ -1,6 +1,6 @@
 {
   "name": "ElectronTerminal",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A minimal Electron Terminal Serial application for distrubution",
   "author": "Sm3llin",
   "license": "MIT",

@@ -20,11 +20,10 @@ function createWindow () {
     show: false
   });
 
-  window.webContents.openDevTools();
+  if (isDev) window.webContents.openDevTools();
 
   window.on('ready-to-show', () => {
-    console.log('Giving loading screen at least ' + (isDev ? 0 : 1) + ' second');
-    setTimeout(() => window.show(), (isDev ? 0 : 1000));
+    window.show();
   });
 
 
