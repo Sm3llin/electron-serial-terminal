@@ -1,0 +1,32 @@
+{
+  "name": "ElectronTerminal",
+  "version": "1.0.0",
+  "description": "A minimal Electron Terminal Serial application for distrubution",
+  "author": "Sm3llin",
+  "license": "MIT",
+  "keywords": [
+    "Electron",
+    "serialport",
+    "terminal",
+    "demo"
+  ],
+  "scripts": {
+    "dev": "electron-builder install-app-deps && electron-webpack dev",
+    "compile": "electron-webpack",
+    "dist": "yarn compile && electron-builder",
+    "dist:dir": "yarn dist --dir -c.compression=store -c.mac.identity=null"
+  },
+  "devDependencies": {
+    "electron": "1.8.4",
+    "electron-builder": "^20.8.1",
+    "electron-webpack": "^2.0.1",
+    "webpack": "^4.4.1"
+  },
+  "dependencies": {
+    "serialport": "^6.1.1",
+    "source-map-support": "^0.5.4"
+  },
+  "resolutions": {
+    "webpack-sources": "1.0.1"
+  }
+}
