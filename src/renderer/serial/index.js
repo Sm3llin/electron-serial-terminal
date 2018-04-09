@@ -58,7 +58,7 @@ class SerialSession {
     }
   }
 
-  send(data) {
+  send(data, callback) {
     this._session.write(data + '\n', err => {
       if (err) {
         return console.error('Error on write: ', err.message);
@@ -66,6 +66,7 @@ class SerialSession {
         console.log('message written');
       }
     });
+    this._session.drain(callback);
   }
 
   startSession(err) {
@@ -73,6 +74,7 @@ class SerialSession {
       this._session = new serialport(this.settings.comName, { baudRate: this.settings.baudRate });
 
       this._session.on('open', () => {
+        this._session.flush();
         this._connectionOpen = true;
         this.__callEvent('open', true);
       });
@@ -81,7 +83,7 @@ class SerialSession {
         this._connectionOpen = false;
         this.__callEvent('close', true);
       });
-      this._session.on('error', () => console.log('Serial port error: ' + error));
+      this._session.on('error', (error) => console.log('Serial port error: ' + error));
     } else {
       err('Unable to start a new session')
     }

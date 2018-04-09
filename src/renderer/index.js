@@ -49,6 +49,7 @@ let menuTemplate = [
       session.startSession((err) => {
         console.error(err);
         alert(err);
+        input.disable();
       });
     }
   },
