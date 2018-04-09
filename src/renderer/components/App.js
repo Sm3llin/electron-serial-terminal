@@ -6,7 +6,6 @@ import Main from './Main';
 
 class App extends React.Component {
   componentDidMount() {
-    console.log(this.props.title);
     document.title = this.props.title;
   }
 

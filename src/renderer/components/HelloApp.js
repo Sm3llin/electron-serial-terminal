@@ -6,7 +6,6 @@ import Back from './Back';
 
 class HelloApp extends React.Component {
   componentDidMount() {
-    console.log(this.props.title);
     document.title = this.props.title;
   }
 

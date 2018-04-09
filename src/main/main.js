@@ -28,7 +28,17 @@ function createWindow () {
 
 
   if (isDev) {
-    window.loadURL(`http://localhost:${process.env.ELECTRON_WEBPACK_WDS_PORT}`)
+    window.loadURL(`http://localhost:${process.env.ELECTRON_WEBPACK_WDS_PORT}`);
+
+    // Install React Dev Tools
+    const { default: installExtension, REACT_DEVELOPER_TOOLS } = require('electron-devtools-installer');
+
+    installExtension(REACT_DEVELOPER_TOOLS).then((name) => {
+        console.log(`Added Extension:  ${name}`);
+    })
+    .catch((err) => {
+        console.log('An error occurred: ', err);
+    });
   }
   else {
     window.loadURL(formatUrl({
