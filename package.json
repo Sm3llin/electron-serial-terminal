@@ -1,5 +1,6 @@
 {
-  "name": "ElectronTerminal",
+  "name": "electron-serial-terminal",
+  "productName": "Electron Terminal",
   "version": "1.0.1",
   "description": "A minimal Electron Terminal Serial application for distrubution",
   "author": "Sm3llin",
@@ -15,7 +16,8 @@
     "postinstall": "electron-builder install-app-deps",
     "compile": "electron-webpack",
     "dist": "yarn compile && electron-builder",
-    "dist:dir": "yarn dist --dir -c.compression=store -c.mac.identity=null"
+    "dist:dir": "yarn dist --dir -c.compression=store -c.mac.identity=null",
+    "postdist": "electron-builder install-app-deps"
   },
   "devDependencies": {
     "babel-preset-react": "^6.24.1",
